@@ -46,271 +46,379 @@
 
   <title>ItsPekes Shop</title>
 
-  <style>
+<style>
 
-    *{
-      margin:0;
-      padding:0;
-      box-sizing:border-box;
-      font-family:'Poppins',sans-serif;
-    }
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+  font-family:'Poppins',sans-serif;
+}
 
-    body{
-      background:#f5f5f5;
-      color:#111;
-    }
+html{
+  scroll-behavior:smooth;
+}
 
-    html{
-      scroll-behavior:smooth;
-    }
+body{
+  background:#050505;
+  color:#fff;
+  overflow-x:hidden;
+}
 
-    header{
-      background:#fff;
-      padding:20px 40px;
-      display:flex;
-      justify-content:space-between;
-      align-items:center;
-      position:sticky;
-      top:0;
-      z-index:1000;
-      box-shadow:0 2px 15px rgba(0,0,0,0.05);
-    }
+/* NAVBAR */
 
-    nav a{
-      text-decoration:none;
-      margin-left:20px;
-      color:#111;
-      font-weight:600;
-      transition:0.3s;
-    }
+header{
+  position:sticky;
+  top:0;
+  z-index:1000;
+  background:rgba(0,0,0,0.7);
+  backdrop-filter:blur(15px);
+  padding:20px 8%;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  border-bottom:1px solid rgba(255,215,0,0.1);
+}
 
-    nav a:hover{
-      color:#777;
-    }
+header img{
+  height:75px;
+}
 
-    .hero{
-      display:grid;
-      grid-template-columns:1fr 1fr;
-      gap:50px;
-      padding:90px 10%;
-      align-items:center;
-      background:#fff;
-    }
+nav a{
+  text-decoration:none;
+  color:#fff;
+  margin-left:22px;
+  font-weight:500;
+  transition:0.3s;
+  position:relative;
+}
 
-    .hero h2{
-      font-size:64px;
-      line-height:1.1;
-      margin-bottom:20px;
-    }
+nav a:hover{
+  color:#d4af37;
+}
 
-    .hero p{
-      color:#555;
-      margin-bottom:30px;
-      line-height:1.7;
-      font-size:18px;
-    }
+nav a::after{
+  content:'';
+  position:absolute;
+  width:0%;
+  height:2px;
+  left:0;
+  bottom:-6px;
+  background:#d4af37;
+  transition:0.3s;
+}
 
-    .hero img{
-      width:100%;
-      border-radius:25px;
-      box-shadow:0 10px 30px rgba(0,0,0,0.1);
-    }
+nav a:hover::after{
+  width:100%;
+}
 
-    .btn{
-      display:inline-block;
-      background:#111;
-      color:#fff;
-      padding:15px 30px;
-      border-radius:14px;
-      text-decoration:none;
-      margin-right:15px;
-      margin-top:10px;
-      transition:0.3s;
-      font-weight:600;
-    }
+/* HERO */
 
-    .btn:hover{
-      background:#333;
-      transform:translateY(-2px);
-    }
+.hero{
+  min-height:100vh;
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  align-items:center;
+  padding:100px 10%;
+  gap:50px;
+  background:
+  linear-gradient(
+    rgba(0,0,0,0.65),
+    rgba(0,0,0,0.75)
+  ),
+  url('https://images.unsplash.com/photo-1491553895911-0055eca6402d?q=80&w=1600&auto=format&fit=crop');
+  background-size:cover;
+  background-position:center;
+}
 
-    .collections{
-      padding:100px 10%;
-      text-align:center;
-    }
+.hero h2{
+  font-size:72px;
+  line-height:1.05;
+  margin-bottom:25px;
+}
 
-    .collections h3{
-      font-size:42px;
-      margin-bottom:15px;
-    }
+.hero span{
+  color:#d4af37;
+}
 
-    .collections p{
-      color:#666;
-    }
+.hero p{
+  color:#ccc;
+  font-size:18px;
+  line-height:1.8;
+  margin-bottom:35px;
+  max-width:600px;
+}
 
-    .products{
-      display:grid;
-      grid-template-columns:repeat(auto-fit,minmax(300px,1fr));
-      gap:35px;
-      margin-top:60px;
-    }
+/* BUTTONS */
 
-    .card{
-      background:#fff;
-      border-radius:24px;
-      overflow:hidden;
-      transition:0.3s;
-      box-shadow:0 5px 25px rgba(0,0,0,0.05);
-    }
+.btn{
+  display:inline-block;
+  padding:16px 34px;
+  border-radius:14px;
+  text-decoration:none;
+  margin-right:15px;
+  margin-top:10px;
+  font-weight:600;
+  transition:0.3s;
+  border:1px solid #d4af37;
+}
 
-    .card:hover{
-      transform:translateY(-10px);
-      box-shadow:0 15px 40px rgba(0,0,0,0.1);
-    }
+.btn-primary{
+  background:#d4af37;
+  color:#000;
+}
 
-    .card img{
-      width:100%;
-      height:320px;
-      object-fit:cover;
-    }
+.btn-secondary{
+  color:#fff;
+}
 
-    .card-content{
-      padding:25px;
-      text-align:left;
-    }
+.btn:hover{
+  transform:translateY(-4px);
+  box-shadow:0 10px 25px rgba(212,175,55,0.25);
+}
 
-    .card-content h4{
-      font-size:24px;
-      margin-bottom:10px;
-    }
+/* TRUST BAR */
 
-    .card-content p{
-      color:#666;
-      margin-bottom:20px;
-      line-height:1.6;
-    }
+.trust-bar{
+  background:#0f0f0f;
+  padding:25px 10%;
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(200px,1fr));
+  text-align:center;
+  gap:20px;
+  border-top:1px solid rgba(255,215,0,0.1);
+  border-bottom:1px solid rgba(255,215,0,0.1);
+}
 
-    .features{
-      padding:100px 10%;
-      background:#fff;
-      display:grid;
-      grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
-      gap:30px;
-      text-align:center;
-    }
+.trust-item h4{
+  color:#d4af37;
+  margin-bottom:8px;
+}
 
-    .feature{
-      background:#f9f9f9;
-      padding:40px;
-      border-radius:20px;
-      transition:0.3s;
-    }
+/* SECTIONS */
 
-    .feature:hover{
-      transform:translateY(-8px);
-    }
+.collections{
+  padding:100px 10%;
+}
 
-    .newsletter{
-      background:#111;
-      color:#fff;
-      text-align:center;
-      padding:100px 10%;
-    }
+.collections h3{
+  font-size:46px;
+  margin-bottom:15px;
+  text-align:center;
+}
 
-    .newsletter form{
-      margin-top:30px;
-    }
+.collections p{
+  text-align:center;
+  color:#aaa;
+  max-width:800px;
+  margin:auto;
+}
 
-    .newsletter input{
-      padding:15px;
-      width:300px;
-      max-width:90%;
-      border:none;
-      border-radius:12px;
-      margin-right:10px;
-      font-size:16px;
-    }
+/* PRODUCTS */
 
-    .newsletter button{
-      padding:15px 25px;
-      border:none;
-      border-radius:12px;
-      background:#fff;
-      font-weight:700;
-      cursor:pointer;
-    }
+.products{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(300px,1fr));
+  gap:35px;
+  margin-top:60px;
+}
 
-    .dashboard{
-      background:#111;
-      color:#fff;
-      padding:100px 10%;
-      text-align:center;
-    }
+.card{
+  background:#111;
+  border-radius:24px;
+  overflow:hidden;
+  transition:0.4s;
+  border:1px solid rgba(255,215,0,0.08);
+  position:relative;
+}
 
-    .dashboard-box{
-      max-width:500px;
-      margin:auto;
-      background:#1c1c1c;
-      padding:40px;
-      border-radius:25px;
-      margin-top:40px;
-    }
+.card:hover{
+  transform:translateY(-12px);
+  box-shadow:0 20px 50px rgba(0,0,0,0.5);
+}
 
-    .dashboard-box input{
-      width:100%;
-      padding:15px;
-      border:none;
-      border-radius:12px;
-      margin-bottom:20px;
-      font-size:16px;
-    }
+.card img{
+  width:100%;
+  height:320px;
+  object-fit:cover;
+}
 
-    .dashboard-box button{
-      width:100%;
-      padding:15px;
-      background:#fff;
-      border:none;
-      border-radius:12px;
-      font-weight:700;
-      cursor:pointer;
-    }
+.badge{
+  position:absolute;
+  top:15px;
+  left:15px;
+  background:#d4af37;
+  color:#000;
+  padding:8px 14px;
+  border-radius:30px;
+  font-size:13px;
+  font-weight:700;
+}
 
-    .contact{
-      text-align:center;
-      padding:100px 10%;
-      background:#fff;
-    }
+.card-content{
+  padding:25px;
+}
 
-    footer{
-      background:#000;
-      color:#fff;
-      text-align:center;
-      padding:40px;
-    }
+.card-content h4{
+  font-size:24px;
+  margin-bottom:10px;
+}
 
-    @media(max-width:900px){
+.price{
+  color:#d4af37;
+  font-size:22px;
+  font-weight:700;
+  margin:15px 0;
+}
 
-      .hero{
-        grid-template-columns:1fr;
-      }
+.rating{
+  color:#f5c542;
+  margin-bottom:12px;
+}
 
-      .hero h2{
-        font-size:46px;
-      }
+/* DASHBOARD */
 
-      header{
-        flex-direction:column;
-        gap:20px;
-      }
+.dashboard{
+  background:#0a0a0a;
+  padding:100px 10%;
+  text-align:center;
+}
 
-      nav{
-        text-align:center;
-      }
+.dashboard h2{
+  font-size:44px;
+  margin-bottom:20px;
+}
 
-    }
+.dashboard-box{
+  max-width:500px;
+  margin:auto;
+  background:#111;
+  padding:40px;
+  border-radius:24px;
+  margin-top:40px;
+  border:1px solid rgba(255,215,0,0.08);
+}
 
-  </style>
+.dashboard-box input{
+  width:100%;
+  padding:16px;
+  margin-bottom:20px;
+  border:none;
+  border-radius:12px;
+  background:#1b1b1b;
+  color:#fff;
+  font-size:16px;
+}
 
+.dashboard-box button{
+  width:100%;
+  padding:16px;
+  border:none;
+  border-radius:12px;
+  background:#d4af37;
+  color:#000;
+  font-weight:700;
+  cursor:pointer;
+}
+
+/* NEWSLETTER */
+
+.newsletter{
+  padding:100px 10%;
+  text-align:center;
+  background:#111;
+}
+
+.newsletter h2{
+  font-size:42px;
+  margin-bottom:15px;
+}
+
+.newsletter p{
+  color:#aaa;
+}
+
+.newsletter form{
+  margin-top:35px;
+}
+
+.newsletter input{
+  padding:16px;
+  width:320px;
+  max-width:90%;
+  border:none;
+  border-radius:12px;
+  background:#1c1c1c;
+  color:#fff;
+}
+
+.newsletter button{
+  padding:16px 28px;
+  border:none;
+  border-radius:12px;
+  background:#d4af37;
+  color:#000;
+  font-weight:700;
+  cursor:pointer;
+  margin-left:10px;
+}
+
+/* CONTACT */
+
+.contact{
+  padding:100px 10%;
+  text-align:center;
+}
+
+.contact h2{
+  font-size:42px;
+  margin-bottom:20px;
+}
+
+/* FOOTER */
+
+footer{
+  background:#000;
+  padding:50px 10%;
+  text-align:center;
+  border-top:1px solid rgba(255,215,0,0.1);
+}
+
+footer p{
+  color:#777;
+}
+
+/* MOBILE */
+
+@media(max-width:900px){
+
+  header{
+    flex-direction:column;
+    gap:20px;
+  }
+
+  nav{
+    text-align:center;
+  }
+
+  .hero{
+    grid-template-columns:1fr;
+    text-align:center;
+    padding-top:150px;
+  }
+
+  .hero h2{
+    font-size:48px;
+  }
+
+  .newsletter button{
+    margin-top:15px;
+    margin-left:0;
+  }
+
+}
+
+</style>
 </head>
 
 <body>
@@ -353,38 +461,51 @@
 
     <p>PREMIUM MEN'S FASHION ACCESSORIES</p>
 
-   <h2>Luxury Shoes & Watches For Modern Men.</h2>
+    <h2>
+      Step Up Your <span>Style.</span>
+    </h2>
 
-<p>
-  Explore premium shoes, luxury watches, sneakers,
-  boots and timeless fashion essentials designed
-  for confidence, elegance and performance.
-</p>
-    
-    <a class="btn" href="#collections">
-      Shop Shoes
+    <p>
+      Explore luxury shoes, premium watches,
+      trending sneakers and timeless fashion essentials
+      curated for modern men.
+    </p>
+
+    <a class="btn btn-primary" href="#collections">
+      Shop Collection
     </a>
 
-    <a class="btn" href="#watches">
-      Explore Watches
+    <a class="btn btn-secondary" href="#watches">
+      Luxury Watches
     </a>
-
-    <a class="btn" href="https://wa.me/254113077711" target="_blank">
-      WhatsApp Orders
-    </a>
-
-  </div>
-
-  <div>
-
-    <img
-      src="https://images.unsplash.com/photo-1549298916-b41d501d3772?q=80&w=1200&auto=format&fit=crop"
-    >
 
   </div>
 
 </section>
+  <section class="trust-bar">
 
+  <div class="trust-item">
+    <h4>Premium Quality</h4>
+    <p>Luxury curated products</p>
+  </div>
+
+  <div class="trust-item">
+    <h4>Trending Fashion</h4>
+    <p>Modern luxury styles</p>
+  </div>
+
+  <div class="trust-item">
+    <h4>Fast Worldwide Access</h4>
+    <p>Direct Amazon delivery</p>
+  </div>
+
+  <div class="trust-item">
+    <h4>Best Seller Picks</h4>
+    <p>Top rated fashion items</p>
+  </div>
+
+</section>
+  
 <section class="collections" id="collections">
 
   <h3>Premium Men's Shoes Collection</h3>
@@ -399,6 +520,10 @@
     <!-- OFFICE SHOE 1 -->
     <div class="card">
 
+      <div class="badge">
+  BEST SELLER
+</div>
+      
       <img src="https://images.unsplash.com/photo-1614252235316-8c857d38b5f4?q=80&w=1200&auto=format&fit=crop">
 
       <div class="card-content">
@@ -422,6 +547,10 @@
     <!-- OFFICE SHOE 2 -->
     <div class="card">
 
+ <div class="badge">
+    TRENDING
+  </div>
+      
       <img src="https://images.unsplash.com/photo-1612817159949-195b6eb9e31a?q=80&w=1200&auto=format&fit=crop">
 
       <div class="card-content">
@@ -443,6 +572,10 @@
     <!-- OFFICE SHOE 3 -->
     <div class="card">
 
+  <div class="badge">
+    HOT PICK
+  </div>
+      
       <img src="https://images.unsplash.com/photo-1614252369475-531eba835eb1?q=80&w=1200&auto=format&fit=crop">
 
       <div class="card-content">
@@ -462,13 +595,17 @@
     </div>
 
     <!-- SNEAKERS 1 -->
-    <div class="card">
+   <div class="card">
 
-      <img src="https://images.unsplash.com/photo-1542291026-7eec264c27ff?q=80&w=1200&auto=format&fit=crop">
+  <div class="badge">
+    TRENDING
+  </div>
 
-      <div class="card-content">
+  <img src="https://images.unsplash.com/photo-1542291026-7eec264c27ff?q=80&w=1200&auto=format&fit=crop">
 
-        <h4>Performance Running Sneakers</h4>
+  <div class="card-content">
+
+    <h4>Performance Running Sneakers</h4>
 
         <p>★★★★★ (1,102 reviews)</p>
 
@@ -485,8 +622,12 @@
     </div>
 
     <!-- SNEAKERS 2 -->
-    <div class="card">
+   <div class="card">
 
+  <div class="badge">
+    HOT PICK
+  </div>
+      
       <img src="https://images.unsplash.com/photo-1543508282-6319a3e2621f?q=80&w=1200&auto=format&fit=crop">
 
       <div class="card-content">
@@ -508,6 +649,10 @@
     <!-- SNEAKERS 3 -->
     <div class="card">
 
+      <div class="badge">
+  TRENDING
+</div>
+      
       <img src="https://images.unsplash.com/photo-1600185365483-26d7a4cc7519?q=80&w=1200&auto=format&fit=crop">
 
       <div class="card-content">
@@ -529,6 +674,10 @@
     <!-- BOOTS 1 -->
     <div class="card">
 
+      <div class="badge">
+  BEST SELLER
+</div>
+      
       <img src="https://images.unsplash.com/photo-1525966222134-fcfa99b8ae77?q=80&w=1200&auto=format&fit=crop">
 
       <div class="card-content">
@@ -550,6 +699,10 @@
     <!-- BOOTS 2 -->
     <div class="card">
 
+      <div class="badge">
+  TRENDING
+</div>
+      
       <img src="https://images.unsplash.com/photo-1638247025967-b4e38f787b76?q=80&w=1200&auto=format&fit=crop">
 
       <div class="card-content">
@@ -571,6 +724,10 @@
     <!-- BOOTS 3 -->
     <div class="card">
 
+      <div class="badge">
+  HOT PICK
+</div>
+      
       <img src="https://images.unsplash.com/photo-1608256246200-53e635b5b65f?q=80&w=1200&auto=format&fit=crop">
 
       <div class="card-content">
@@ -605,6 +762,10 @@
     <!-- WATCH 1 -->
     <div class="card">
 
+      <div class="badge">
+  LUXURY PICK
+</div>
+      
       <img src="https://images.unsplash.com/photo-1523170335258-f5ed11844a49?q=80&w=1200&auto=format&fit=crop">
 
       <div class="card-content">
@@ -628,6 +789,10 @@
     <!-- WATCH 2 -->
     <div class="card">
 
+  <div class="badge">
+    TRENDING
+  </div>
+      
       <img src="https://images.unsplash.com/photo-1547996160-81dfa63595aa?q=80&w=1200&auto=format&fit=crop">
 
       <div class="card-content">
@@ -649,6 +814,10 @@
     <!-- WATCH 3 -->
 <div class="card">
 
+  <div class="badge">
+  BEST SELLER
+</div>
+  
   <img src="https://images.unsplash.com/photo-1434056886845-dac89ffe9b56?q=80&w=1200&auto=format&fit=crop">
 
   <div class="card-content">
