@@ -1,0 +1,23 @@
+{
+  "name": "itspekes-shop",
+  "version": "1.0.0",
+  "description": "Male Shoes Store - Premium Men's Shoes & Watches",
+  "main": "index.html",
+  "scripts": {
+    "test": "echo \"No tests specified\" && exit 0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/chairmanpeke892-create/itspekes-shop.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/chairmanpeke892-create/itspekes-shop/issues"
+  },
+  "homepage": "https://github.com/chairmanpeke892-create/itspekes-shop#readme",
+  "dependencies": {
+    "@vercel/speed-insights": "^2.0.0"
+  }
+}
