@@ -4,12 +4,26 @@
 
 <url>
 <loc>https://itspekes-shop.vercel.app/</loc>
-<priority>1.0</priority>
 </url>
 
 <url>
 <loc>https://itspekes-shop.vercel.app/best-mens-watches.html</loc>
-<priority>0.9</priority>
+</url>
+
+<url>
+<loc>https://itspekes-shop.vercel.app/best-office-shoes.html</loc>
+</url>
+
+<url>
+<loc>https://itspekes-shop.vercel.app/best-sneakers-for-men.html</loc>
+</url>
+
+<url>
+<loc>https://itspekes-shop.vercel.app/luxury-mens-style-guide.html</loc>
+</url>
+
+<url>
+<loc>https://itspekes-shop.vercel.app/watch-buying-guide.html</loc>
 </url>
 
 </urlset>
